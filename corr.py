@@ -11,8 +11,6 @@ def corr_st():
     choice_list = st.multiselect('원하는 컬럼을 선택하세요',df.columns)
     if len(choice_list) != 0 :
         st.dataframe(df[choice_list])
-        ct = ColumnTransformer([ ('encoder', OneHotEncoder(),[4]) ] , remainder = 'passthrough')
-
         st.dataframe(df[choice_list].corr(numeric_only=True))
     else :
         st.write()

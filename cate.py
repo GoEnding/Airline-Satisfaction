@@ -2,8 +2,11 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
+import seaborn as sb
 
 def cate_st(selected_column):
+    st.title('승객점수 0:불만족 5:만족')
+
     df = pd.read_csv('data/Airline_sa.csv')
     font_path = 'c:\WINDOWS\Fonts\GULIM.TTC'  # 한글 폰트 파일의 경로를 지정합니다.
     font_prop = fm.FontProperties(fname=font_path)
@@ -25,8 +28,17 @@ def cate_st(selected_column):
 
     
     # 변수의 값 출력
-    st.write(f"{selected_column}:")
-    st.write(var_value)
+    col1,col2 = st.columns([2,3])
+
+    with col1 :
+        st.write(f"{selected_column}:")
+        st.write(var_value)
+    with col2 :
+        st.subheader('전체 만족도')
+        fig, ax = plt.subplots()
+        ax.pie(df['만족도'].value_counts(), labels=["Neutral or dissatisfied", "Satisfied"], colors=sb.color_palette("YlOrBr"), autopct='%1.1f%%')
+        ax.axis('equal')  # 원형을 유지하기 위해 가로세로 비율을 동일하게 설정
+        st.pyplot(fig)
 
 # Streamlit 앱 실행
 if __name__ == "__main__":

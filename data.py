@@ -21,6 +21,21 @@ def data_st():
         if st.session_state.show_data:
             st.write(df)
 
+        if 'show_data2' not in st.session_state:
+            st.session_state.show_data2 = False  # 세션 상태에 show_data 변수가 없으면 False로 초기화
+
+        show_data2 = st.button('## 데이터 정보')
+
+    # 버튼이 눌린 경우에만 데이터를 출력하도록 설정
+        if show_data2:
+            st.session_state.show_data2 = not st.session_state.show_data2  # 버튼을 토글하여 상태 변경
+
+    # show_data가 True인 경우에만 데이터 출력
+        if st.session_state.show_data2:
+            st.write(df['성별'].nunique())
+               
+   
+
 
 if __name__ == '__main__':
     data_st()

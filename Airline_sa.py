@@ -10,14 +10,14 @@ from data import data_st
 
 def main():
 
-    menu = ['Home','데이터소개','각 만족도', '상관관계분석', 'EDA','만족도 예측']
+    menu = ['Home','EDA','각 만족도', '상관관계분석','만족도 예측']
 
     choice = st.sidebar.selectbox('메뉴',menu)
 
     if choice == menu[0]:
         home_st()
     elif choice == menu[1]:
-        data_st()     
+        eda_st()     
 
     elif choice == menu[2]:
         selected_column = st.selectbox("카테고리를 선택하세요.", ['기내 와이파이 서비스', '출발/도착 시간 편의성', '온라인 예약 편의성', '탑승구 위치', 
@@ -30,8 +30,6 @@ def main():
     elif choice == menu[3]:
         corr_st()
     elif choice == menu[4]:
-        eda_st()
-    elif choice == menu[5]:
         ml_st()
 if __name__ == '__main__':
     main()
