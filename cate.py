@@ -38,6 +38,7 @@ def cate_st(selected_column):
         fig, ax = plt.subplots()
         ax.pie(df['만족도'].value_counts(), labels=["Neutral or dissatisfied", "Satisfied"], colors=sb.color_palette("YlOrBr"), autopct='%1.1f%%')
         ax.axis('equal')  # 원형을 유지하기 위해 가로세로 비율을 동일하게 설정
+        ax.legend()
         st.pyplot(fig)
 
 # Streamlit 앱 실행

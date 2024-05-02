@@ -4,13 +4,12 @@ from eda import eda_st
 from home import home_st
 from ml import ml_st
 from cate import cate_st
-from data import data_st
 
 
 
 def main():
 
-    menu = ['Home','EDA','각 만족도', '상관관계분석','만족도 예측']
+    menu = ['Home','EDA 및 데이터분포','각 만족도', '상관관계분석','만족도 예측']
 
     choice = st.sidebar.selectbox('메뉴',menu)
 
