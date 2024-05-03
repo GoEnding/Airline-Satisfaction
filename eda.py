@@ -7,8 +7,11 @@ import platform
 plt.rcParams['axes.unicode_minus'] = False
 if platform.system() == 'Linux':
     rc('font', family='NanumGothic')
-    
+
 def eda_st():
+    plt.rcParams['axes.unicode_minus'] = False
+    if platform.system() == 'Linux':
+        rc('font', family='NanumGothic')
     df = pd.read_csv('data/Airline_sa.csv')
     df = df.iloc[:, 1:]
     
@@ -63,6 +66,10 @@ def eda_st():
         # 각 카테고리별 시각화
 
         with tab2:
+            plt.rcParams['axes.unicode_minus'] = False
+            if platform.system() == 'Linux':
+                rc('font', family='NanumGothic')
+
             st.subheader('각 카테고리별 시각화')
 
             # 성별 분포
