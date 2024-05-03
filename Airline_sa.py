@@ -9,7 +9,7 @@ from cate import cate_st
 
 def main():
 
-    menu = ['Home','EDA 및 데이터분포','각 만족도', '상관관계분석','만족도 예측']
+    menu = ['Home','EDA 및 데이터분포','각 만족도', '상관관계분석']
 
     choice = st.sidebar.selectbox('메뉴',menu)
 
@@ -28,7 +28,6 @@ def main():
      
     elif choice == menu[3]:
         corr_st()
-    elif choice == menu[4]:
-        ml_st()
+
 if __name__ == '__main__':
     main()

@@ -5,8 +5,8 @@ import matplotlib.font_manager as fm
 import seaborn as sb
 
 def cate_st(selected_column):
-    st.title('승객점수 0:불만족 5:만족')
-
+    st.subheader('각 서비스에 대한 점수 데이터입니다.')
+    st.info('승객점수 0:불만족 5:만족')
     df = pd.read_csv('data/Airline_sa.csv')
     font_path = 'c:\WINDOWS\Fonts\GULIM.TTC'  # 한글 폰트 파일의 경로를 지정합니다.
     font_prop = fm.FontProperties(fname=font_path)
