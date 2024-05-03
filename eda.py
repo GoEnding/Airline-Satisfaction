@@ -2,8 +2,12 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
-
+from matplotlib import font_manager, rc
+import platform
+plt.rcParams['axes.unicode_minus'] = False
+if platform.system() == 'Linux':
+    rc('font', family='NanumGothic')
+    
 def eda_st():
     df = pd.read_csv('data/Airline_sa.csv')
     df = df.iloc[:, 1:]
@@ -12,9 +16,6 @@ def eda_st():
     st.title('항공사 만족도 분석')
     
     # 한글 폰트 지정
-    font_path = 'c:/Windows/Fonts/gulim.ttc'  # 한글 폰트 파일의 경로를 지정합니다.
-    font_prop = fm.FontProperties(fname=font_path)
-    plt.rcParams['font.family'] = font_prop.get_name()
 
     tab1, tab2= st.tabs(['EDA' , '데이터 분포']) 
         # 데이터 출력을 위한 토글 버튼

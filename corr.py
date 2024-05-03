@@ -4,16 +4,17 @@ import seaborn as sb
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
-import matplotlib.font_manager as fm
+from matplotlib import font_manager, rc
+import platform
 from PIL import Image
 def corr_st():
+    plt.rcParams['axes.unicode_minus'] = False
+    if platform.system() == 'Linux':
+        rc('font', family='NanumGothic')
+
     # 데이터 불러오기
     df = pd.read_csv('data/Airline_sa.csv')
     df = df.iloc[ : , 1: ]
-    
-    font_path = 'c:/Windows/Fonts/gulim.ttc'  # 한글 폰트 파일의 경로를 지정합니다.
-    font_prop = fm.FontProperties(fname=font_path)
-    plt.rcParams['font.family'] = font_prop.get_name()
 
 
     # 선택한 컬럼들을 멀티셀렉트로 받기
@@ -46,9 +47,9 @@ def corr_st():
             # 산점도로 사용자에게 보여주자  
             fig, ax = plt.subplots()
             sb.regplot(x=df['만족도'], y=df[choice_column], fit_reg=True, ax=ax)
-            plt.title(f'만족도와 {choice_column}의 상관관계', fontsize=20, fontproperties=font_prop)
-            plt.xlabel('만족도', fontproperties=font_prop)
-            plt.ylabel(choice_column, fontproperties=font_prop)
+            plt.title(f'만족도와 {choice_column}의 상관관계', fontsize=20)
+            plt.xlabel('만족도')
+            plt.ylabel(choice_column)
             st.pyplot(fig)
 
 

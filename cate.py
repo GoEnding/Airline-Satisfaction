@@ -1,15 +1,18 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
+from matplotlib import font_manager, rc
+import platform
 import seaborn as sb
+plt.rcParams['axes.unicode_minus'] = False
+if platform.system() == 'Linux':
+    rc('font', family='NanumGothic')
 
 def cate_st(selected_column):
     st.subheader('각 서비스에 대한 점수 데이터입니다.')
     st.info('승객점수 0:불만족 5:만족')
     df = pd.read_csv('data/Airline_sa.csv')
-    font_path = 'c:\WINDOWS\Fonts\GULIM.TTC'  # 한글 폰트 파일의 경로를 지정합니다.
-    font_prop = fm.FontProperties(fname=font_path)
+
     
     # 선택한 변수에 대한 바 차트를 그립니다.
     var_value = df[selected_column].value_counts()
@@ -18,9 +21,9 @@ def cate_st(selected_column):
     fig, ax = plt.subplots(figsize=(9, 3))
     ax.bar(var_value.index, var_value.values)
 
-    ax.set_xlabel("승객 점수", fontproperties=font_prop)
-    ax.set_ylabel("빈도수", fontproperties=font_prop)
-    ax.set_title(selected_column, fontproperties=font_prop)
+    ax.set_xlabel("승객 점수")
+    ax.set_ylabel("빈도수")
+    ax.set_title(selected_column)
     
     # 그림을 Streamlit 앱에서 표시합니다
     st.pyplot(fig)
