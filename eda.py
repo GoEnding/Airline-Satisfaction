@@ -22,33 +22,17 @@ def eda_st():
 
     tab1, tab2= st.tabs(['EDA' , '데이터 분포']) 
         # 데이터 출력을 위한 토글 버튼
-    with tab1:    
-        if 'show_data' not in st.session_state:
-            st.session_state.show_data = False  # 세션 상태에 show_data 변수가 없으면 False로 초기화
+    with tab1:
 
-        show_data = st.button('## 데이터 미리보기')
+        new_data = ['데이터 미리보기','데이터 통계치']
+        dataset = st.radio('데이터 선택',new_data)
+        
+        if dataset == new_data[0]:
+            st.info('와이파이서비스부터 청결도까지는 점수 0~5로 나타내고,0:불만족 5:만족을 보여줍니다')
+            st.dataframe(df)
+        elif dataset == new_data[1]:
+            st.dataframe(df.describe())
 
-    # 버튼이 눌린 경우에만 데이터를 출력하도록 설정
-        if show_data:
-            st.session_state.show_data = not st.session_state.show_data  # 버튼을 토글하여 상태 변경
-
-    # show_data가 True인 경우에만 데이터 출력
-        if st.session_state.show_data:
-            st.write(df)    
-
-
-
-
-        # 각 카테고리별 통계 정보
-        if 'show_data2' not in st.session_state:
-            st.session_state.show_data2 = False
-
-        show_data2 =  st.button('## 데이터 통계 정보')
-        if show_data2:
-            st.session_state.show_data2 = not st.session_state.show_data2
-
-        if st.session_state.show_data2:
-            st.write(df.describe())
 
 
         st.text('보고싶은 열을 선택하면, 해당 열의 최대/최소 데이터를 보여드립니다.')

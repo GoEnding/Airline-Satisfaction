@@ -37,12 +37,34 @@ def cate_st(selected_column):
         st.write(f"{selected_column}:")
         st.write(var_value)
     with col2 :
-        st.subheader('전체 만족도')
+        st.info('4-5점:만족,3점:보통,0-2점:불만족의 비율을 나타냅니다')
+        satisfaction = []
+        for score in df[selected_column]:
+            if score >= 4:
+                satisfaction.append("만족")
+            elif score == 3:
+                satisfaction.append("보통")
+            else:
+                satisfaction.append("불만족")
+
+        df['Satisfaction'] = satisfaction
+
+        # 만족도 비율 계산
+        satisfaction_ratio = df['Satisfaction'].value_counts(normalize=True) * 100
+
+        # 파이 차트 시각화
         fig, ax = plt.subplots()
-        ax.pie(df['만족도'].value_counts(), labels=["Neutral or dissatisfied", "Satisfied"], colors=sb.color_palette("YlOrBr"), autopct='%1.1f%%')
+        ax.pie(satisfaction_ratio, labels=satisfaction_ratio.index, colors=sb.color_palette("YlOrBr"), autopct='%1.1f%%')
         ax.axis('equal')  # 원형을 유지하기 위해 가로세로 비율을 동일하게 설정
         ax.legend()
         st.pyplot(fig)
+
+    st.subheader('전체 만족도')
+    fig, ax = plt.subplots()
+    ax.pie(df['만족도'].value_counts(), labels=["Neutral or dissatisfied", "Satisfied"], colors=sb.color_palette("YlOrBr"), autopct='%1.1f%%')
+    ax.axis('equal')  # 원형을 유지하기 위해 가로세로 비율을 동일하게 설정
+    ax.legend()
+    st.pyplot(fig)
 
 # Streamlit 앱 실행
 if __name__ == "__main__":

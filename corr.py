@@ -21,7 +21,7 @@ def corr_st():
 
 
 
-    tab1,tab2 = st.tabs(['만족도 대비 상관관계','전체 상관관계'])
+    tab1,tab2 = st.tabs(['만족도 대비 상관관계','일부 시각화 자료'])
     
 
     # 컬럼이 선택되었을 경우에만 실행
@@ -54,35 +54,22 @@ def corr_st():
 
 
     with tab2:
-        choice_list = st.multiselect('원하는 컬럼을 선택하세요', df.columns)
-        if len(choice_list) != 0:
-            st.dataframe(df[choice_list])
-            # 선택한 컬럼들만 포함하는 데이터프레임 생성
-            df_selected = df[choice_list].copy()
 
-            # 범주형 변수를 레이블 인코딩으로 변환
-            label_encoder = LabelEncoder()
-            for col in df_selected.select_dtypes(include=['object']).columns:
-                df_selected[col] = label_encoder.fit_transform(df_selected[col])
+        # 선택한 카테고리가 존재하는 경우에만 그래프를 그립니다
+        selected_column = st.selectbox("일부 서비스에 있어서 비행거리에 대한 만족도 차트입니다.", ['다리 공간 서비스', '좌석 편안함', '클래스'])
 
-            # 범주형 변수에 대해 원핫 인코딩 적용
-            ct = ColumnTransformer([('encoder', OneHotEncoder(), df_selected.select_dtypes(include=['object']).columns)], remainder='passthrough')
-            df_encoded = pd.DataFrame(ct.fit_transform(df_selected), columns=ct.get_feature_names_out())
+        # 선택한 카테고리가 존재하는 경우에만 그래프를 그립니다
+        if selected_column:
+            # 바 그래프를 그립니다
+            fig, ax = plt.subplots(figsize=(10, 6))
+            sb.barplot(data=df, x=selected_column, y='비행 거리', hue='만족도', ax=ax)
+            ax.set_title(f"{selected_column} 에있어서 비행거리에 대한 만족도 차트")
+            ax.set_xlabel(selected_column)
+            ax.set_ylabel('비행 거리')
+            ax.legend(title='만족도')
+            plt.xticks(rotation=45)
+            st.pyplot(fig)
 
-            # 상관관계 계산
-            corr_matrix = df_encoded.corr()
-
-            # 상관관계 행렬 출력
-            st.write(corr_matrix)
-
-            if len(choice_list) >= 2 :
-                # 1. 페어플롯을 그린다.
-
-                fig1 =sb.pairplot(data = df, vars = choice_list)
-                st.pyplot(fig1)
-            else :
-                st.text('컬럼은 2개 이상 선택해야 합니다.')
-
-
+        
 if __name__ == '__main__':
     corr_st()
