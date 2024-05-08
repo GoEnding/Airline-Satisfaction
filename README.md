@@ -2,15 +2,8 @@
 
 출처
 
+항공사 승객 만족도 데이터
 https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction/data
 
-https://www.kaggle.com/code/mennatullahelsahy/airline-passenger-satisfaction-part-i-eda#What-is-the-overall-satisfaction-level-of-airline-passengers?
-
-https://www.kaggle.com/code/mehmetbicici/airline-passenger-satisfaction-eda-ml#Airline-Passenger-Satisfaction-Analysis
-
-
-https://www.kaggle.com/code/justicevil/short-code-with-detailed-eda-prediction-96
-
-https://www.kaggle.com/code/chandrimad31/flight-passenger-satisfaction-eda-and-prediction#Exploratory-Data-Analysis
-
-https://www.kaggle.com/code/yasserhessein/airline-passenger-eda-7-algorithms-accuracy97#notebook-container
+이 데이터는 한 항공사의 만족도 데이터세트를 가져와 가공 및 분석하였습니다. 데이터 가공은 쥬피터 노트북에서 했으며,
+아나콘다 다운로드 후 아나콘다 프롬프트에서 경로 이동 후 쥬피터 노트북을 실행시켰습니다. 
