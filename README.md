@@ -5,25 +5,25 @@
 항공사 승객 만족도 데이터
 https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction/data
 
-크롬에서 해야하며 아나콘다 다운,파이썬 다운로드 등 여러 환경 셋팅을 했습니다.
-데이터 가공을 위해 쥬피터 노트북을 다운받습니다(데이터 가공 및 인공지능 개발 환경 할 수 있는 툴)
-그 후 깃 허브에서 레파지토리를 하나 생성해줍니다.
-그러면서 깃허브 데스크탑도 안깔려있으면 다운 받아줍니다.
-이제 깃 허브에서 open with Desktop을 눌러 클론을 해주거나
-깃 허브 데스크탑을 직접 눌러 File 누른 후 경로를 복사해 클론을 해줍니다.
-그 다음 그 파일 경로로 가서 data 폴더라는 새폴더를 만들어 줍니다.(이곳에 가공할 데이터를 넣어 줄 것입니다.)
-아나콘다 프롬프트를 키고 "cd 경로명"을 해주면 그 경로로 갑니다.
-그 후 "jupyter notebook ." 을 그대로 쳐주면 쥬피터 노트북이 실행이 됩니다.
-거기서 가져온 데이터를 가공해줍니다.가공이 완료 되면 
-다시 Git hub Desktop으로 가서 open in visual studio code를 열어줍니다.
-그 다음 가상환경을 설정해 줄 것입니다.
-먼저 
-conda create -n 가상환경이름 python=3.10 openssl numpy scipy matplotlib ipython scikit-learn pandas pillow jupyter seaborn
-을 함으로써 가상환경 생성 및 여러 라이브러리를 설치해줍니다.
-그 다음
-conda activate 가상환경이름 을 해주면 가상환경으로 들어가집니다.
-그 다음 VSC 다시 켜고 가상환경으로 진입해줍니다.
-가상환경에서 pip install streamlit 해서 streamlit 을 다운 받아주고
-파일은 하나 만들어 streamlit run 을 해서 잘 켜지는지 확인 후 streamlit 라이브러리를 통해 웹 브라우저 프론트 백엔드 부분을 개발했습니다.
+환경 설정
+크롬에서 아나콘다 및 파이썬을 다운로드하여 설치합니다.
+데이터 가공 및 인공지능 개발을 위해 쥬피터 노트북을 설치합니다.
+깃허브 레파지토리 생성
+깃허브 레포지토리를 생성합니다.
+깃허브 데스크탑을 설치하지 않은 경우 설치합니다.
+로컬에서 클론
+깃허브에서 Desktop을 통해 클론하거나 직접 깃허브 데스크탑에서 파일 경로를 복사하여 클론합니다.
+클론한 경로로 이동한 후 데이터를 저장할 새 폴더(data)를 생성합니다.
+데이터 가공
+아나콘다 프롬프트를 열고 해당 경로로 이동합니다.
+쥬피터 노트북을 실행합니다.
+데이터를 가공합니다.
+가상환경 설정
+새로운 가상환경을 생성하고 필요한 라이브러리를 설치합니다. (예: conda create -n 가상환경이름 python=3.10 openssl numpy scipy matplotlib ipython scikit-learn pandas pillow jupyter seaborn)
+가상환경을 활성화합니다. (예: conda activate 가상환경이름)
+Visual Studio Code(VSC)를 열고 해당 가상환경으로 전환합니다.
+Streamlit 설치
+가상환경에서 Streamlit을 설치합니다. (예: pip install streamlit)
+파일을 생성하고 Streamlit을 실행하여 정상 작동을 확인합니다. (예: streamlit run 파일이름)
 
 
