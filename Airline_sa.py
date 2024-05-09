@@ -34,8 +34,8 @@ def main():
     )
 
 
-        choice = option_menu("메뉴", ["Home", "EDA 및 데이터 분포", "각 만족도", "상관관계분석"],
-                            icons=['house', 'kanban', 'bi bi-clipboard-data-fill', 'bi bi-clipboard-data'],
+        choice = option_menu("메뉴", ["Home", "EDA 및 데이터 분포", "각 만족도", "상관관계분석","만족도 예측"],
+                            icons=['house', 'kanban', 'bi bi-clipboard-data-fill', 'bi bi-clipboard-data','bi bi-robot'],
                             menu_icon="bi bi-airplane-fill", default_index=0,
                             styles={
                                 "container": {"padding": "5!important", "background-color": "#fafafa"},
@@ -62,6 +62,9 @@ def main():
         
     elif choice == '상관관계분석':
         corr_st()
+
+    elif choice == '만족도 예측':
+        ml_st()    
 
 if __name__ == '__main__':
     main()

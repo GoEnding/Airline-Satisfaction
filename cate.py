@@ -61,7 +61,7 @@ def cate_st(selected_column):
 
     st.subheader('전체 만족도')
     fig, ax = plt.subplots()
-    ax.pie(df['만족도'].value_counts(), labels=["Neutral or dissatisfied", "Satisfied"], colors=sb.color_palette("YlOrBr"), autopct='%1.1f%%')
+    ax.pie(df['만족도'].value_counts(), labels=["보통or불만족", "만족"], colors=sb.color_palette("YlOrBr"), autopct='%1.1f%%')
     ax.axis('equal')  # 원형을 유지하기 위해 가로세로 비율을 동일하게 설정
     ax.legend()
     st.pyplot(fig)
