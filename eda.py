@@ -4,9 +4,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 import platform
-plt.rcParams['axes.unicode_minus'] = False
-if platform.system() == 'Linux':
-    rc('font', family='NanumGothic')
 
 def eda_st():
     plt.rcParams['axes.unicode_minus'] = False
