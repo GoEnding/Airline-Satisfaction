@@ -95,6 +95,7 @@ def ml_st():
         if sati_pre == 1:
             st.write('### 만족스러운 여행이셨군요!!')
             img = Image.open('data/woman_travel.png')
+    
             st.image(img)
             
             # 만족일 경우에만 상관관계 분석 수행
