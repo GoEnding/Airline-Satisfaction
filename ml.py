@@ -2,13 +2,25 @@ import streamlit as st
 import joblib
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
+
 import sklearn
 from sklearn.preprocessing import LabelEncoder
+import platform
 from PIL import Image
 
 
 
 def ml_st():
+    plt.rcParams['axes.unicode_minus'] = False
+    if platform.system() == 'Linux':
+        rc('font', family='NanumGothic')
+    elif platform.system() == 'Windows':
+        # 윈도우 환경에서 한글 폰트 설정
+        font_path = "c:\WINDOWS\Fonts\GULIM.TTC"  # 한글 폰트 파일 경로
+        font_name = font_manager.FontProperties(fname=font_path).get_name()
+        rc('font', family=font_name)    
     st.title('당신의 비행은 만족스러웠나요?')
     # 1. 예측하기 위해서 유저한테 입력받는다.
     st.text('성별을 선택하세요.')
@@ -108,6 +120,7 @@ def ml_st():
             st.write('### 불만족스러운 여행이셨군요...')
             img2 = Image.open('data/rage.jpg')
             st.image(img2)
+
 
 
 

@@ -9,12 +9,16 @@ def eda_st():
     plt.rcParams['axes.unicode_minus'] = False
     if platform.system() == 'Linux':
         rc('font', family='NanumGothic')
-    df = pd.read_csv('data/Airline_sa.csv')
-    df = df.iloc[:, 1:]
-    
+    elif platform.system() == 'Windows':
+        # 윈도우 환경에서 한글 폰트 설정
+        font_path = "c:\WINDOWS\Fonts\GULIM.TTC"  # 한글 폰트 파일 경로
+        font_name = font_manager.FontProperties(fname=font_path).get_name()
+        rc('font', family=font_name)
     # 페이지 제목
     st.title('항공사 만족도 분석')
-    
+
+    df = pd.read_csv('data/Airline_sa.csv')
+    df = df.iloc[ : , 1: ]
     # 한글 폰트 지정
 
     tab1, tab2= st.tabs(['EDA' , '데이터 분포']) 
