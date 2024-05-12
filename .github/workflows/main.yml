@@ -15,7 +15,7 @@ jobs:
     steps:
       # Node.js 버전을 설정하는 부분입니다.
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
           node-version: '20'
       
