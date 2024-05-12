@@ -21,5 +21,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           script: |
-            cd GitHub/Airline-Satisfaction/                
-            git pull
+            cd GitHub/Airline-Satisfaction/
+            git init
+            git pull origin main
