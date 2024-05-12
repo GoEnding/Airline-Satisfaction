@@ -20,7 +20,7 @@ def main():
     with st.sidebar:
         st.markdown(
             """
-            <div style="font-size: 24px; font-weight: bold; color: skyblue;margin-bottom: 30px;text-align: center;">슬기로운 여행생활!!!</div>
+            <div style="font-size: 24px; font-weight: bold; color: skyblue;margin-bottom: 30px;text-align: center;">슬기로운 여행생활!</div>
             """,
             unsafe_allow_html=True
         )
