@@ -13,10 +13,13 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
-      - uses: actions/checkout@v3
-        # Node.js 버전을 20으로 지정합니다.
+      # Node.js 버전을 설정하는 부분입니다.
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
+      
+      - uses: actions/checkout@v3
       - name: ssh to ec2
         uses: appleboy/ssh-action@master
         with:
