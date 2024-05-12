@@ -11,14 +11,8 @@ on:
 jobs:
   SSH:
     runs-on: ubuntu-latest
-  
+
     steps:
-      # Node.js 버전을 설정하는 부분입니다.
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20'
-      
       - uses: actions/checkout@v3
       - name: ssh to ec2
         uses: appleboy/ssh-action@master
@@ -27,6 +21,5 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           script: |
-            cd GitHub/Airline-Satisfaction/
-            git init
-            git pull origin main
+            cd /GitHub/Airline-Satisfaction
+            git pull
