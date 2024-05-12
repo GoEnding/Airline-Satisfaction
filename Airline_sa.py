@@ -20,7 +20,7 @@ def main():
     with st.sidebar:
         st.markdown(
             """
-            <div style="font-size: 24px; font-weight: bold; color: skyblue;margin-bottom: 30px;text-align: center;">슬기로운 여행생활!</div>
+            <div style="font-size: 24px; font-weight: bold; color: skyblue;margin-bottom: 30px;text-align: center;">슬기로운 여행생활!!</div>
             """,
             unsafe_allow_html=True
         )
@@ -32,7 +32,7 @@ def main():
         """,
         unsafe_allow_html=True
     )
-
+        st.text('하이')
 
         choice = option_menu("메뉴", ["Home", "EDA 및 데이터 분포", "각 만족도", "상관관계분석","만족도 예측"],
                             icons=['house', 'kanban', 'bi bi-clipboard-data-fill', 'bi bi-clipboard-data','bi bi-robot'],
